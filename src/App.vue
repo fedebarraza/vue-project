@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <h1>Just a title</h1>
+    <contactos></contactos>
   </div>
 </template>
 
 <script>
+import Contactos from "./components/contactos/Contactos.vue";
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    Contactos
+  }
 };
 </script>
 
@@ -17,7 +20,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  color: #a5a5a5;
+}
+
+body {
+  background-color: #eeeeee;
 }
 </style>
