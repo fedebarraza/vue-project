@@ -15,15 +15,15 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: #eeeeee;
+}
+
 #app {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   color: black;
   display: flex;
   justify-content: center;
   margin-top: 60px;
-}
-
-body {
-  background-color: #eeeeee;
 }
 </style>

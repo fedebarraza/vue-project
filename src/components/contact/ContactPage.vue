@@ -1,32 +1,41 @@
 <template>
   <div class="contact-page">
     <h3>Consulta de Contactos</h3>
-    <plus-icon></plus-icon>
+    <plus-icon :openModal.sync="openModal"></plus-icon>
     <search :query.sync="query"></search>
     <contact-list
       :items="items"
       :query="query"
-      @details="showItem"
+      @details="editItem"
       @delete="deleteItem"
     ></contact-list>
+    <contact-modal
+      v-if="openModal"
+      v-bind="item"
+      :closeModal.sync="openModal"
+    ></contact-modal>
   </div>
 </template>
 <script>
 import PlusIcon from "./PlusIcon";
 import Search from "./Search";
 import ContactList from "./ContactList";
+import ContactModal from "./ContactModal";
 
 export default {
   name: "contact-page",
   components: {
     PlusIcon,
     Search,
-    ContactList
+    ContactList,
+    ContactModal
   },
   data() {
     return {
       query: "",
-      items: []
+      openModal: false,
+      items: [],
+      item: {}
     };
   },
   mounted() {
@@ -56,8 +65,9 @@ export default {
     ];
   },
   methods: {
-    showItem(item) {
-      console.log(item);
+    editItem(item) {
+      this.item = item;
+      this.openModal = true;
     },
     deleteItem(index) {
       this.items.splice(index, 1);

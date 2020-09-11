@@ -1,5 +1,5 @@
 <template>
-  <div class="plus-icon">
+  <div class="plus-icon" @click="$emit('update:openModal', true)">
     <font-awesome-icon
       class="plus-square"
       icon="plus-square"
