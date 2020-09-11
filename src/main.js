@@ -4,13 +4,14 @@ import App from "./App.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
-  faTrash,
   faEye,
+  faTrash,
   faSearch,
-  faPlusSquare
+  faPlusSquare,
+  faAddressBook
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTrash, faEye, faSearch, faPlusSquare);
+library.add(faTrash, faEye, faSearch, faPlusSquare, faAddressBook);
 
 Vue.config.productionTip = false;
 

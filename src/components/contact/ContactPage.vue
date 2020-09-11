@@ -1,8 +1,11 @@
 <template>
   <div class="contact-page">
     <h3>Consulta de Contactos</h3>
-    <plus-icon :openModal.sync="openModal"></plus-icon>
-    <search :query.sync="query"></search>
+    <contact-icon></contact-icon>
+    <div class="menu">
+      <a href="#" @click.prevent="openModal = true">Nuevo Contacto</a>
+      <search :query.sync="query"></search>
+    </div>
     <contact-list
       :items="items"
       :query="query"
@@ -17,16 +20,16 @@
   </div>
 </template>
 <script>
-import PlusIcon from "./PlusIcon";
 import Search from "./Search";
+import ContactIcon from "./ContactIcon";
 import ContactList from "./ContactList";
 import ContactModal from "./ContactModal";
 
 export default {
   name: "contact-page",
   components: {
-    PlusIcon,
     Search,
+    ContactIcon,
     ContactList,
     ContactModal
   },
@@ -85,6 +88,13 @@ export default {
   h3 {
     width: 40%;
     text-align: center;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: flex-end;
   }
 }
 </style>

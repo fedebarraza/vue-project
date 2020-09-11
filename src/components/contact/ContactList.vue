@@ -87,7 +87,7 @@ export default {
 .contact-list {
   display: flex;
   justify-content: center;
-  margin: 20px 10px;
+  margin: 10px;
 
   .table {
     border-collapse: collapse;
@@ -99,7 +99,7 @@ export default {
     }
 
     th {
-      padding: 25px;
+      padding: 10px 25px;
     }
 
     td {

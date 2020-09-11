@@ -1,8 +1,8 @@
 <template>
-  <div class="plus-icon">
+  <div class="icon">
     <font-awesome-icon
       class="plus-square"
-      icon="plus-square"
+      icon="address-book"
       size="2x"
     ></font-awesome-icon>
   </div>
@@ -12,7 +12,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  name: "plus-icon",
+  name: "contact-icon",
   components: {
     FontAwesomeIcon
   }
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.plus-icon {
+.icon {
   background-color: green;
   position: absolute;
   top: 50px;
