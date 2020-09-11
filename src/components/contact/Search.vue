@@ -1,12 +1,22 @@
 <template>
   <div class="search">
-    <input type="text" name="search" placeholder="Buscar" />
+    <input
+      v-model="queryText"
+      type="text"
+      placeholder="Buscar"
+      @change="$emit('update:query', queryText)"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: "search"
+  name: "search",
+  data() {
+    return {
+      queryText: ""
+    };
+  }
 };
 </script>
 

@@ -2,9 +2,10 @@
   <div class="contact-page">
     <h3>Consulta de Contactos</h3>
     <open-modal></open-modal>
-    <search></search>
+    <search :query.sync="query"></search>
     <contact-list
       :items="items"
+      :query="query"
       @details="showItem"
       @delete="deleteItem"
     ></contact-list>
@@ -24,6 +25,7 @@ export default {
   },
   data() {
     return {
+      query: "",
       items: [
         {
           id: 1,
@@ -35,6 +37,17 @@ export default {
           pais: "Argentina",
           provincia: "Buenos Aires",
           localidad: "Ramos Mejia"
+        },
+        {
+          id: 2,
+          tipo: "Arquitecto",
+          nombre: "Roberto",
+          apellido: "Sosa",
+          telefono: "221333",
+          direccion: "Mendoza 315",
+          pais: "Argentina",
+          provincia: "Buenos Aires",
+          localidad: "Avellaneda"
         }
       ]
     };
@@ -45,6 +58,9 @@ export default {
     },
     deleteItem(index) {
       console.log(index);
+    },
+    searchItem(query) {
+      console.log(query);
     }
   }
 };

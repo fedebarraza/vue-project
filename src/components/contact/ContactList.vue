@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in items" :key="item.id">
+        <tr v-for="(item, index) in matchItems" :key="item.id">
           <td class="actions">
             <font-awesome-icon
               class="action-button"
@@ -51,9 +51,33 @@ export default {
     FontAwesomeIcon
   },
   props: {
+    query: {
+      type: String,
+      required: false
+    },
     items: {
       type: Array,
       required: true
+    }
+  },
+  computed: {
+    matchItems() {
+      const query = this.query.toLowerCase();
+      if (query) {
+        let matches = this.items.filter(function(item) {
+          for (let propField in item) {
+            if (
+              propField != "id" &&
+              item[propField].toLowerCase().includes(query)
+            ) {
+              return true;
+            }
+          }
+          return false;
+        });
+        return matches;
+      }
+      return this.items;
     }
   }
 };
