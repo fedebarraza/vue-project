@@ -3,7 +3,7 @@
     <h3>Consulta de Contactos</h3>
     <open-modal></open-modal>
     <search></search>
-    <listado-contactos></listado-contactos>
+    <listado-contactos :items="items"></listado-contactos>
   </div>
 </template>
 <script>
@@ -17,6 +17,23 @@ export default {
     OpenModal,
     Search,
     ListadoContactos
+  },
+  data() {
+    return {
+      items: [
+        {
+          id: 1,
+          tipo: "Ingeniero",
+          nombre: "Jorge",
+          apellido: "Miller",
+          telefono: "0303456",
+          direccion: "San Juan 315",
+          pais: "Argentina",
+          provincia: "Buenos Aires",
+          localidad: "Ramos Mejia"
+        }
+      ]
+    };
   }
 };
 </script>

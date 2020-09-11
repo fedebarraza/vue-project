@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr v-for="item in items" :key="item.id">
           <td class="actions">
             <font-awesome-icon
               class="action-button"
@@ -26,14 +26,14 @@
               icon="trash"
             ></font-awesome-icon>
           </td>
-          <td>Ingeniero</td>
-          <td>Jorge</td>
-          <td>Miller</td>
-          <td>0303456</td>
-          <td>San Juan 315</td>
-          <td>Argentina</td>
-          <td>Buenos Aires</td>
-          <td>Ramos Mejia</td>
+          <td>{{ item.tipo }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.apellido }}</td>
+          <td>{{ item.telefono }}</td>
+          <td>{{ item.direccion }}</td>
+          <td>{{ item.pais }}</td>
+          <td>{{ item.provincia }}</td>
+          <td>{{ item.localidad }}</td>
         </tr>
       </tbody>
     </table>
@@ -47,6 +47,12 @@ export default {
   name: "listado-contactos",
   components: {
     FontAwesomeIcon
+  },
+  props: {
+    items: {
+      type: Array,
+      required: true
+    }
   }
 };
 </script>
