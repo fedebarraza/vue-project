@@ -1,4 +1,4 @@
-# learning-vue
+# vue-project
 
 ## Project setup
 ```
