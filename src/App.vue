@@ -17,7 +17,7 @@ export default {
 <style>
 #app {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  color: #a5a5a5;
+  color: black;
   display: flex;
   justify-content: center;
   margin-top: 60px;
