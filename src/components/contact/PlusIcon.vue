@@ -1,7 +1,7 @@
 <template>
-  <div class="open-modal">
+  <div class="plus-icon">
     <font-awesome-icon
-      class="new-user"
+      class="plus-square"
       icon="plus-square"
       size="2x"
     ></font-awesome-icon>
@@ -12,7 +12,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  name: "open-modal",
+  name: "plus-icon",
   components: {
     FontAwesomeIcon
   }
@@ -20,14 +20,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.open-modal {
+.plus-icon {
   background-color: green;
   position: absolute;
   top: 50px;
   margin-left: 10px;
   cursor: pointer;
 
-  .new-user {
+  .plus-square {
     margin: 20px;
     color: white;
   }
