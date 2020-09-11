@@ -16,12 +16,11 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   color: #a5a5a5;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
 
 body {

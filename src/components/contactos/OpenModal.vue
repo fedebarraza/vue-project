@@ -1,12 +1,21 @@
 <template>
   <div class="open-modal">
-    <div class="new-user">New User</div>
+    <font-awesome-icon
+      class="new-user"
+      icon="plus-square"
+      size="2x"
+    ></font-awesome-icon>
   </div>
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
-  name: "open-modal"
+  name: "open-modal",
+  components: {
+    FontAwesomeIcon
+  }
 };
 </script>
 
@@ -16,9 +25,10 @@ export default {
   position: absolute;
   top: 50px;
   margin-left: 10px;
+  cursor: pointer;
 
   .new-user {
-    margin: 20px 10px;
+    margin: 20px;
     color: white;
   }
 }

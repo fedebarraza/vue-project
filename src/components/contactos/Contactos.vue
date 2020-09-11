@@ -1,7 +1,7 @@
 <template>
   <div class="contactos">
-    <open-modal></open-modal>
     <h3>Consulta de Contactos</h3>
+    <open-modal></open-modal>
     <search></search>
     <listado-contactos></listado-contactos>
   </div>
@@ -28,7 +28,8 @@ export default {
   display: inline-block;
 
   h3 {
-    width: 60%;
+    width: 40%;
+    text-align: center;
   }
 }
 </style>
