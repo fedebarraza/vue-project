@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <contactos></contactos>
+    <contact-page></contact-page>
   </div>
 </template>
 
 <script>
-import Contactos from "./components/contactos/Contactos.vue";
+import ContactPage from "./components/contact/ContactPage.vue";
 export default {
   name: "App",
   components: {
-    Contactos
+    ContactPage
   }
 };
 </script>

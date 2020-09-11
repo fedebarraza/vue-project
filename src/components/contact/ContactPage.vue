@@ -1,22 +1,26 @@
 <template>
-  <div class="contactos">
+  <div class="contact-page">
     <h3>Consulta de Contactos</h3>
     <open-modal></open-modal>
     <search></search>
-    <listado-contactos :items="items"></listado-contactos>
+    <contact-list
+      :items="items"
+      @details="showItem"
+      @delete="deleteItem"
+    ></contact-list>
   </div>
 </template>
 <script>
 import OpenModal from "./OpenModal";
 import Search from "./Search";
-import ListadoContactos from "./ListadoContactos";
+import ContactList from "./ContactList";
 
 export default {
-  name: "contactos",
+  name: "contact-page",
   components: {
     OpenModal,
     Search,
-    ListadoContactos
+    ContactList
   },
   data() {
     return {
@@ -34,12 +38,20 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    showItem(item) {
+      console.log(item);
+    },
+    deleteItem(index) {
+      console.log(index);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.contactos {
+.contact-page {
   margin: 10px;
   background-color: white;
   display: inline-block;

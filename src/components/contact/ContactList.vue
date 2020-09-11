@@ -1,5 +1,5 @@
 <template>
-  <div class="listado-contactos">
+  <div class="contact-list">
     <table class="table">
       <thead>
         <tr>
@@ -15,15 +15,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in items" :key="item.id">
+        <tr v-for="(item, index) in items" :key="item.id">
           <td class="actions">
             <font-awesome-icon
               class="action-button"
               icon="eye"
+              @click="$emit('details', item)"
             ></font-awesome-icon>
             <font-awesome-icon
               class="action-button"
               icon="trash"
+              @click="$emit('delete', index)"
             ></font-awesome-icon>
           </td>
           <td>{{ item.tipo }}</td>
@@ -44,7 +46,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
-  name: "listado-contactos",
+  name: "contact-list",
   components: {
     FontAwesomeIcon
   },
@@ -58,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.listado-contactos {
+.contact-list {
   display: flex;
   justify-content: center;
   margin: 20px 10px;
