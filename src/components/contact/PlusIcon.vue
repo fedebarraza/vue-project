@@ -24,7 +24,6 @@ export default {
   background-color: green;
   position: absolute;
   top: 50px;
-  margin-left: 10px;
   border-radius: 5px;
 
   .plus-square {

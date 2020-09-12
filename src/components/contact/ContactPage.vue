@@ -84,6 +84,7 @@ export default {
   margin: 10px;
   background-color: white;
   display: inline-block;
+  border-radius: 5px;
 
   h3 {
     width: 40%;

@@ -6,7 +6,15 @@
         >&times;</span
       >
       <div class="form">
-        <input type="text" name="Nombre" :value="nombre" />
+        <div class="row">
+          <input type="text" name="Tipo" :value="tipo" />
+          <input type="text" name="Nombre" :value="nombre" />
+          <input type="text" name="Apellido" :value="apellido" />
+        </div>
+        <div class="row">
+          <input class="grow-2" type="text" name="Telefono" :value="telefono" />
+          <input class="grow-0" type="email" name="Email" :value="email" />
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +105,37 @@ export default {
       color: #000;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    .form {
+      margin-top: 10px;
+      align-self: stretch;
+
+      .row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        .grow-1 {
+          flex-grow: 1;
+        }
+
+        .grow-2 {
+          flex-grow: 2;
+        }
+      }
+
+      input {
+        outline: 0;
+        border-width: 0 0 1px;
+        border-color: #000;
+        padding-bottom: 5px;
+
+        &:focus {
+          border-color: lightgray;
+        }
+      }
     }
   }
 }
