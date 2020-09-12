@@ -7,13 +7,23 @@
       >
       <div class="form">
         <div class="row">
-          <input type="text" name="Tipo" :value="tipo" />
-          <input type="text" name="Nombre" :value="nombre" />
-          <input type="text" name="Apellido" :value="apellido" />
+          <input type="text" placeholder="Tipo" :value="tipo" />
+          <input type="text" placeholder="Nombre" :value="nombre" />
+          <input type="text" placeholder="Apellido" :value="apellido" />
         </div>
         <div class="row">
-          <input class="grow-2" type="text" name="Telefono" :value="telefono" />
-          <input class="grow-0" type="email" name="Email" :value="email" />
+          <input
+            class="grow-2"
+            type="text"
+            placeholder="Telefono"
+            :value="telefono"
+          />
+          <input
+            class="grow-0"
+            type="email"
+            placeholder="Email"
+            :value="email"
+          />
         </div>
       </div>
     </div>

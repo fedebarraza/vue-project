@@ -1,11 +1,6 @@
 <template>
   <div class="control-form search">
-    <input
-      v-model="queryText"
-      type="text"
-      placeholder="Buscar"
-      @change="$emit('update:query', queryText)"
-    />
+    <input type="text" placeholder="Buscar" v-model="query" />
     <font-awesome-icon icon="search"></font-awesome-icon>
   </div>
 </template>
@@ -18,10 +13,16 @@ export default {
   components: {
     FontAwesomeIcon
   },
+  watch: {},
   data() {
     return {
-      queryText: ""
+      query: ""
     };
+  },
+  watch: {
+    query: function() {
+      this.$emit("search", this.query);
+    }
   }
 };
 </script>

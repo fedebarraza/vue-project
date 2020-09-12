@@ -4,10 +4,10 @@
     <contact-icon></contact-icon>
     <div class="menu">
       <a href="#" @click.prevent="openModal = true">Nuevo Contacto</a>
-      <search :query.sync="query"></search>
+      <search @search="searchItem"></search>
     </div>
     <contact-list
-      :items="items"
+      :items="searchedItems"
       :query="query"
       @details="editItem"
       @delete="deleteItem"
@@ -67,6 +67,25 @@ export default {
       }
     ];
   },
+  computed: {
+    searchedItems() {
+      if (!this.query) {
+        return this.items;
+      }
+      return this.items.filter(item => {
+        for (let fieldName in item) {
+          if (
+            fieldName != "id" &&
+            item[fieldName].toLowerCase().includes(this.query)
+          ) {
+            return true;
+          }
+        }
+        return false;
+      });
+      return matches;
+    }
+  },
   methods: {
     editItem(item) {
       this.item = item;
@@ -74,6 +93,9 @@ export default {
     },
     deleteItem(index) {
       this.items.splice(index, 1);
+    },
+    searchItem(query) {
+      this.query = query.toLowerCase();
     }
   }
 };
