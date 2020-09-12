@@ -1,5 +1,5 @@
 <template>
-  <div class="plus-icon">
+  <div class="plus-icon bg-green">
     <font-awesome-icon
       class="plus-square"
       icon="plus-square"
@@ -21,7 +21,6 @@ export default {
 
 <style lang="scss" scoped>
 .plus-icon {
-  background-color: green;
   position: absolute;
   top: 50px;
   border-radius: 5px;

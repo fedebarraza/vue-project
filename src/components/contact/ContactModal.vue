@@ -13,18 +13,38 @@
         </div>
         <div class="row">
           <input
-            class="grow-2"
+            class="large"
             type="text"
             placeholder="Telefono"
             :value="telefono"
           />
+          <input type="email" placeholder="Email" :value="email" />
+        </div>
+        <div class="row">
           <input
-            class="grow-0"
-            type="email"
-            placeholder="Email"
-            :value="email"
+            class="x-large"
+            type="text"
+            placeholder="Dirección"
+            :value="direccion"
           />
         </div>
+        <div class="row">
+          <input type="text" placeholder="Pais" :value="pais" />
+          <label class="country">Pais</label>
+          <input type="text" placeholder="Provincia" :value="provincia" />
+          <input type="text" placeholder="Localidad" :value="localidad" />
+        </div>
+        <div class="row two">
+          <input type="text" placeholder="Fuente" :value="fuente" />
+          <input type="text" placeholder="Comercio" :value="comercio" />
+        </div>
+        <div class="description">
+          <label>Observaciones</label>
+          <textarea :value="observaciones"></textarea>
+        </div>
+        <button @click.prevent="save" class="btn bg-green">
+          Guardar Contacto
+        </button>
       </div>
     </div>
   </div>
@@ -63,6 +83,10 @@ export default {
       type: String,
       required: false
     },
+    email: {
+      type: String,
+      required: false
+    },
     pais: {
       type: String,
       required: false
@@ -74,6 +98,23 @@ export default {
     localidad: {
       type: String,
       required: false
+    },
+    fuente: {
+      type: String,
+      required: false
+    },
+    comercio: {
+      type: String,
+      required: false
+    },
+    observaciones: {
+      type: String,
+      required: false
+    }
+  },
+  methods: {
+    save: function() {
+      this.$emit("save", this.id);
     }
   }
 };
@@ -83,31 +124,25 @@ export default {
 .contact-modal {
   position: fixed;
   z-index: 1;
-  padding-top: 80px;
+  padding-top: 10vh;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 
   .modal-content {
-    background-color: #fefefe;
+    background-color: var(--clr-body);
     margin: auto;
-    padding: 20px;
-    max-width: 650px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 2vh;
+    max-width: 60vh;
     text-align: right;
 
     .close {
       color: #aaaaaa;
-      float: right;
-      font-size: 28px;
+      font-size: rem(28px);
       font-weight: bold;
-      align-self: stretch;
     }
 
     .close:hover,
@@ -118,32 +153,77 @@ export default {
     }
 
     .form {
-      margin-top: 10px;
-      align-self: stretch;
+      margin-top: 1vw;
 
       .row {
         display: flex;
-        align-items: flex-start;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 2vw;
+        position: relative;
 
-        .grow-1 {
-          flex-grow: 1;
+        &.two input {
+          flex-basis: 45%;
         }
 
-        .grow-2 {
-          flex-grow: 2;
+        .country {
+          position: absolute;
+          bottom: 1vw;
+          font-size: 12px;
+        }
+      }
+
+      .description {
+        text-align: left;
+        width: 100%;
+
+        label {
+          display: block;
+          font-size: 14px;
+          margin-bottom: 1vw;
+        }
+
+        textarea {
+          width: 100%;
+        }
+      }
+
+      input,
+      textarea {
+        outline: 0;
+        border-width: 0 0 1px;
+
+        &:focus {
+          border-color: var(--clr-primary);
         }
       }
 
       input {
-        outline: 0;
-        border-width: 0 0 1px;
         border-color: #000;
-        padding-bottom: 5px;
+        flex-basis: 30%;
+
+        &.large {
+          flex-basis: 65%;
+        }
+
+        &.x-large {
+          flex-basis: 100%;
+        }
+      }
+
+      textarea {
+        border-style: solid;
+      }
+
+      .btn {
+        margin-top: 2vw;
+        border: 1px solid green;
+        border-radius: 5px;
+        padding: 0.5vw;
+        color: var(--clr-body);
+        cursor: pointer;
 
         &:focus {
-          border-color: lightgray;
+          background-color: darkgreen;
         }
       }
     }

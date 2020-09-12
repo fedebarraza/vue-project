@@ -16,6 +16,7 @@
       v-if="openModal"
       v-bind="item"
       :closeModal.sync="openModal"
+      @save="saveItem"
     ></contact-modal>
   </div>
 </template>
@@ -96,6 +97,10 @@ export default {
     },
     searchItem(query) {
       this.query = query.toLowerCase();
+    },
+    saveItem(item) {
+      this.openModal = false;
+      console.log(item);
     }
   }
 };
@@ -104,7 +109,7 @@ export default {
 <style lang="scss" scoped>
 .contact-page {
   margin: 10px;
-  background-color: white;
+  background-color: var(--clr-body);
   display: inline-block;
   border-radius: 5px;
 

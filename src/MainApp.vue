@@ -17,12 +17,12 @@ export default {
 <style>
 :root {
   --clr-primary: #333;
+  --clr-body: #fefefe;
   --clr-bg: #eeeeee;
 }
 
 body {
   background-color: var(--clr-bg);
-  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
@@ -31,5 +31,9 @@ body {
   font-family: basic-sans, sans-serif;
   color: var(--clr-primary);
   margin-top: 60px;
+}
+
+.bg-green {
+  background-color: green;
 }
 </style>
