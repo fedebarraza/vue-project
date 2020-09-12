@@ -2,50 +2,49 @@
   <div class="contact-modal">
     <div class="modal-content">
       <plus-icon></plus-icon>
-      <span class="close" @click="$emit('update:closeModal', false)"
-        >&times;</span
-      >
-      <div class="form">
+      <span class="close" @click="$emit('close')">&times;</span>
+      <h3>Nuevo Contacto - Complete los datos</h3>
+      <form class="form" @submit="$emit('save', item)">
         <div class="row">
-          <input type="text" placeholder="Tipo" :value="tipo" />
-          <input type="text" placeholder="Nombre" :value="nombre" />
-          <input type="text" placeholder="Apellido" :value="apellido" />
+          <input type="text" placeholder="Tipo" v-model="item.tipo" />
+          <input type="text" placeholder="Nombre" v-model="item.nombre" />
+          <input type="text" placeholder="Apellido" v-model="item.apellido" />
         </div>
         <div class="row">
           <input
             class="large"
             type="text"
             placeholder="Telefono"
-            :value="telefono"
+            v-model="item.telefono"
           />
-          <input type="email" placeholder="Email" :value="email" />
+          <input type="email" placeholder="Email" v-model="item.email" />
         </div>
         <div class="row">
           <input
             class="x-large"
             type="text"
             placeholder="Dirección"
-            :value="direccion"
+            v-model="item.direccion"
           />
         </div>
         <div class="row">
-          <input type="text" placeholder="Pais" :value="pais" />
+          <input type="text" placeholder="Pais" v-model="item.pais" />
           <label class="country">Pais</label>
-          <input type="text" placeholder="Provincia" :value="provincia" />
-          <input type="text" placeholder="Localidad" :value="localidad" />
+          <input type="text" placeholder="Provincia" v-model="item.provincia" />
+          <input type="text" placeholder="Localidad" v-model="item.localidad" />
         </div>
         <div class="row two">
-          <input type="text" placeholder="Fuente" :value="fuente" />
-          <input type="text" placeholder="Comercio" :value="comercio" />
+          <input type="text" placeholder="Fuente" v-model="item.fuente" />
+          <input type="text" placeholder="Comercio" v-model="item.comercio" />
         </div>
         <div class="description">
           <label>Observaciones</label>
-          <textarea :value="observaciones"></textarea>
+          <textarea v-model="item.observaciones"></textarea>
         </div>
-        <button @click.prevent="save" class="btn bg-green">
+        <button type="submit" class="btn bg-green">
           Guardar Contacto
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -59,63 +58,15 @@ export default {
     PlusIcon
   },
   props: {
-    id: {
-      type: Number,
-      required: false
-    },
-    tipo: {
-      type: String,
-      required: false
-    },
-    nombre: {
-      type: String,
-      required: false
-    },
-    apellido: {
-      type: String,
-      required: false
-    },
-    telefono: {
-      type: String,
-      required: false
-    },
-    direccion: {
-      type: String,
-      required: false
-    },
-    email: {
-      type: String,
-      required: false
-    },
-    pais: {
-      type: String,
-      required: false
-    },
-    provincia: {
-      type: String,
-      required: false
-    },
-    localidad: {
-      type: String,
-      required: false
-    },
-    fuente: {
-      type: String,
-      required: false
-    },
-    comercio: {
-      type: String,
-      required: false
-    },
-    observaciones: {
-      type: String,
+    editItem: {
+      type: Object,
       required: false
     }
   },
-  methods: {
-    save: function() {
-      this.$emit("save", this.id);
-    }
+  data: function() {
+    return {
+      item: this.editItem
+    };
   }
 };
 </script>
@@ -139,9 +90,13 @@ export default {
     max-width: 60vh;
     text-align: right;
 
+    h3 {
+      text-align: left;
+    }
+
     .close {
       color: #aaaaaa;
-      font-size: rem(28px);
+      font-size: 28px;
       font-weight: bold;
     }
 

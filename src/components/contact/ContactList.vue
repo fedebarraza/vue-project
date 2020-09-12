@@ -20,7 +20,7 @@
             <font-awesome-icon
               class="action-button"
               icon="eye"
-              @click="$emit('details', item)"
+              @click="$emit('edit', item)"
             ></font-awesome-icon>
             <font-awesome-icon
               class="action-button"

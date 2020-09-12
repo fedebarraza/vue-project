@@ -3,19 +3,19 @@
     <h3>Consulta de Contactos</h3>
     <contact-icon></contact-icon>
     <div class="menu">
-      <a href="#" @click.prevent="openModal = true">Nuevo Contacto</a>
+      <a href="#" @click.prevent="newItem">Nuevo Contacto</a>
       <search @search="searchItem"></search>
     </div>
     <contact-list
       :items="searchedItems"
       :query="query"
-      @details="editItem"
+      @edit="editItem"
       @delete="deleteItem"
     ></contact-list>
     <contact-modal
       v-if="openModal"
-      v-bind="item"
-      :closeModal.sync="openModal"
+      :edit-item="item"
+      @close="closeModal"
       @save="saveItem"
     ></contact-modal>
   </div>
@@ -39,7 +39,8 @@ export default {
       query: "",
       openModal: false,
       items: [],
-      item: {}
+      item: {},
+      lastId: 3 //Mock for now
     };
   },
   mounted() {
@@ -88,6 +89,10 @@ export default {
     }
   },
   methods: {
+    newItem() {
+      this.item = {};
+      this.openModal = true;
+    },
     editItem(item) {
       this.item = item;
       this.openModal = true;
@@ -99,8 +104,21 @@ export default {
       this.query = query.toLowerCase();
     },
     saveItem(item) {
+      if (item.id) {
+        const index = this.items.findIndex(obj => obj.id == item.id);
+        if (index) {
+          this.items[index] = item;
+        }
+      } else {
+        item.id = this.lastId;
+        this.items.push(item);
+        this.lastId++;
+      }
+
+      this.closeModal();
+    },
+    closeModal() {
       this.openModal = false;
-      console.log(item);
     }
   }
 };
