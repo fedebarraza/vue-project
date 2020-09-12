@@ -1,5 +1,5 @@
 import Vue from "vue";
-import App from "./App.vue";
+import MainApp from "./MainApp.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -16,5 +16,5 @@ library.add(faTrash, faEye, faSearch, faPlusSquare, faAddressBook);
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App)
+  render: h => h(MainApp)
 }).$mount("#app");

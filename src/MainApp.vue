@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="main-app">
     <contact-page></contact-page>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 import ContactPage from "./components/contact/ContactPage.vue";
 export default {
-  name: "App",
+  name: "MainApp",
   components: {
     ContactPage
   }
