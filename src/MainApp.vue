@@ -15,15 +15,21 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #eeeeee;
+:root {
+  --clr-primary: #333;
+  --clr-bg: #eeeeee;
 }
 
-#app {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  color: black;
+body {
+  background-color: var(--clr-bg);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+}
+
+#main-app {
+  font-family: basic-sans, sans-serif;
+  color: var(--clr-primary);
   margin-top: 60px;
 }
 </style>
