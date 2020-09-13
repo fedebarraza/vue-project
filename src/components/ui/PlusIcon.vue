@@ -24,9 +24,10 @@ export default {
   position: absolute;
   top: 50px;
   border-radius: 5px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
 
   .plus-square {
-    margin: 20px;
+    margin: 25px;
     color: white;
   }
 }
