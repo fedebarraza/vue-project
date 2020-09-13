@@ -28,6 +28,7 @@ import ContactList from "./ContactList";
 import ContactModal from "./ContactModal";
 
 import { getCountriesByRegion } from "../../services/Countries";
+import { getContacts } from "../../services/Contacts";
 
 export default {
   name: "contact-page",
@@ -54,30 +55,11 @@ export default {
       });
     });
 
-    this.items = [
-      {
-        id: 1,
-        tipo: "Ingeniero",
-        nombre: "Jorge",
-        apellido: "Miller",
-        telefono: "0303456",
-        direccion: "San Juan 315",
-        pais: "Argentina",
-        provincia: "Buenos Aires",
-        localidad: "Ramos Mejia"
-      },
-      {
-        id: 2,
-        tipo: "Arquitecto",
-        nombre: "Roberto",
-        apellido: "Sosa",
-        telefono: "221333",
-        direccion: "Mendoza 315",
-        pais: "Argentina",
-        provincia: "Buenos Aires",
-        localidad: "Avellaneda"
-      }
-    ];
+    getContacts().then(response => {
+      this.items = response.data.map(function(item) {
+        return item;
+      });
+    });
   },
   computed: {
     searchedItems() {
