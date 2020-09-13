@@ -8,7 +8,8 @@
     <div class="modal-content">
       <form class="form" @submit="$emit('save', item)">
         <div class="row">
-          <select name="tipo" v-model="item.tipo">
+          <label class="select-label">Tipo</label>
+          <select placeholder="tipo" v-model="item.tipo">
             <option value="Ingeniero">Ingeniero</option>
             <option value="Arquitecto">Arquitecto</option>
             <option value="Doctor">Doctor</option>
@@ -35,12 +36,14 @@
           />
         </div>
         <div class="row">
-          <label class="country">Pais</label>
+          <label class="select-label">Pais</label>
           <select name="pais" v-model="item.pais">
-            <option value="Argentina">Argentina</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Brasil">Brasil</option>
-            <option value="Canada">Canada</option>
+            <option
+              v-for="country in countries"
+              :key="country.code"
+              :value="country.code"
+              >{{ country.name }}</option
+            >
           </select>
           <input type="text" placeholder="Provincia" v-model="item.provincia" />
           <input type="text" placeholder="Localidad" v-model="item.localidad" />
@@ -62,6 +65,7 @@
 </template>
 
 <script>
+import { getCountriesByRegion } from "../../services/Countries";
 import PlusIcon from "../ui/PlusIcon.vue";
 
 export default {
@@ -73,6 +77,10 @@ export default {
     editItem: {
       type: Object,
       required: false
+    },
+    countries: {
+      type: Array,
+      required: true
     }
   },
   data: function() {
@@ -117,7 +125,7 @@ export default {
       font-weight: 200;
       text-align: center;
       position: absolute;
-      top: 2vw;
+      top: 1.6vw;
       left: 5vw;
     }
 
@@ -159,9 +167,9 @@ export default {
           flex-basis: 45%;
         }
 
-        .country {
+        .select-label {
           position: absolute;
-          bottom: 1vw;
+          bottom: 1.2vw;
           font-size: 12px;
         }
       }
@@ -173,7 +181,7 @@ export default {
         label {
           display: block;
           font-size: 14px;
-          margin-bottom: 1.2vw;
+          margin-bottom: 1vw;
         }
 
         textarea {

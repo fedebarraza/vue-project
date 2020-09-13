@@ -15,6 +15,7 @@
     <contact-modal
       v-if="openModal"
       :edit-item="item"
+      :countries="countries"
       @close="closeModal"
       @save="saveItem"
     ></contact-modal>
@@ -25,6 +26,8 @@ import Search from "./Search";
 import ContactIcon from "./ContactIcon";
 import ContactList from "./ContactList";
 import ContactModal from "./ContactModal";
+
+import { getCountriesByRegion } from "../../services/Countries";
 
 export default {
   name: "contact-page",
@@ -40,10 +43,17 @@ export default {
       openModal: false,
       items: [],
       item: {},
-      lastId: 3 //Mock for now
+      lastId: 3, //Mock for now
+      countries: []
     };
   },
   mounted() {
+    getCountriesByRegion("usan").then(response => {
+      this.countries = response.data.map(function(country) {
+        return { name: country.nativeName, code: country.alpha3Code };
+      });
+    });
+
     this.items = [
       {
         id: 1,
@@ -85,7 +95,6 @@ export default {
         }
         return false;
       });
-      return matches;
     }
   },
   methods: {
