@@ -44,7 +44,7 @@ export default {
       openModal: false,
       items: [],
       item: {},
-      lastId: 3, //Mock for now
+      itemId: 1,
       countries: []
     };
   },
@@ -56,7 +56,9 @@ export default {
     });
 
     getContacts().then(response => {
-      this.items = response.data.map(function(item) {
+      this.items = response.data.map(item => {
+        item.id = this.itemId;
+        this.itemId++;
         return item;
       });
     });
@@ -97,13 +99,11 @@ export default {
     saveItem(item) {
       if (item.id) {
         const index = this.items.findIndex(obj => obj.id == item.id);
-        if (index) {
-          this.items[index] = item;
-        }
+        this.items.splice(index, 1, item);
       } else {
-        item.id = this.lastId;
+        item.id = this.itemId;
         this.items.push(item);
-        this.lastId++;
+        this.itemId++;
       }
 
       this.closeModal();

@@ -1,6 +1,5 @@
 [
     {
-      "id": 1,
       "tipo": "Ingeniero",
       "nombre": "Jorge",
       "apellido": "Miller",
@@ -11,7 +10,6 @@
       "localidad": "Ramos Mejia"
     },
     {
-      "id": 2,
       "tipo": "Arquitecto",
       "nombre": "Roberto",
       "apellido": "Sosa",
@@ -22,7 +20,6 @@
       "localidad": "Avellaneda"
     },
     {
-      "id": 3,
       "tipo": "Doctor",
       "nombre": "Pepe",
       "apellido": "Rodriguez",

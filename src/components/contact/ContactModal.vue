@@ -85,7 +85,7 @@ export default {
   },
   data: function() {
     return {
-      item: this.editItem
+      item: { ...this.editItem }
     };
   },
   methods: {
