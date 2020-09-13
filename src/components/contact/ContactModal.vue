@@ -1,8 +1,10 @@
 <template>
-  <div class="contact-modal">
-    <div class="modal-content">
+  <div class="contact-modal" @click="closeModal">
+    <div class="icon-wrapper">
       <plus-icon></plus-icon>
       <span class="close" @click="$emit('close')">&times;</span>
+    </div>
+    <div class="modal-content">
       <h3>Nuevo Contacto - Complete los datos</h3>
       <form class="form" @submit="$emit('save', item)">
         <div class="row">
@@ -67,6 +69,13 @@ export default {
     return {
       item: this.editItem
     };
+  },
+  methods: {
+    closeModal(event) {
+      if (event.target == this.$el) {
+        this.$emit("close");
+      }
+    }
   }
 };
 </script>
@@ -83,21 +92,24 @@ export default {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 
-  .modal-content {
-    background-color: var(--clr-body);
+  .icon-wrapper {
+    position: relative;
     margin: auto;
     padding: 2vh;
     max-width: 60vh;
-    text-align: right;
 
-    h3 {
-      text-align: left;
+    .plus-icon {
+      top: 10px;
+      left: 10px;
     }
 
     .close {
       color: #aaaaaa;
       font-size: 28px;
       font-weight: bold;
+      position: absolute;
+      top: 45px;
+      right: 15px;
     }
 
     .close:hover,
@@ -106,9 +118,24 @@ export default {
       text-decoration: none;
       cursor: pointer;
     }
+  }
+
+  .modal-content {
+    background-color: var(--clr-body);
+    margin: auto;
+    padding: 1vh 2vh;
+    max-width: 60vh;
+    text-align: right;
+
+    h3 {
+      font-weight: 200;
+      text-align: center;
+      width: 80%;
+      margin-top: 10px;
+    }
 
     .form {
-      margin-top: 1vw;
+      margin-top: 2vw;
 
       .row {
         display: flex;

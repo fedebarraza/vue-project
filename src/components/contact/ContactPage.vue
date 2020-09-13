@@ -132,8 +132,9 @@ export default {
   border-radius: 5px;
 
   h3 {
-    width: 40%;
+    width: 35%;
     text-align: center;
+    margin-top: 15px;
   }
 
   .menu {
