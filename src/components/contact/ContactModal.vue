@@ -2,13 +2,18 @@
   <div class="contact-modal" @click="closeModal">
     <div class="icon-wrapper">
       <plus-icon></plus-icon>
+      <h3>Nuevo Contacto - Complete los datos</h3>
       <span class="close" @click="$emit('close')">&times;</span>
     </div>
     <div class="modal-content">
-      <h3>Nuevo Contacto - Complete los datos</h3>
       <form class="form" @submit="$emit('save', item)">
         <div class="row">
-          <input type="text" placeholder="Tipo" v-model="item.tipo" />
+          <select name="tipo" v-model="item.tipo">
+            <option value="Ingeniero">Ingeniero</option>
+            <option value="Arquitecto">Arquitecto</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Licenciado">Licenciado</option>
+          </select>
           <input type="text" placeholder="Nombre" v-model="item.nombre" />
           <input type="text" placeholder="Apellido" v-model="item.apellido" />
         </div>
@@ -30,8 +35,13 @@
           />
         </div>
         <div class="row">
-          <input type="text" placeholder="Pais" v-model="item.pais" />
           <label class="country">Pais</label>
+          <select name="pais" v-model="item.pais">
+            <option value="Argentina">Argentina</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Canada">Canada</option>
+          </select>
           <input type="text" placeholder="Provincia" v-model="item.provincia" />
           <input type="text" placeholder="Localidad" v-model="item.localidad" />
         </div>
@@ -96,11 +106,19 @@ export default {
     position: relative;
     margin: auto;
     padding: 2vh;
-    max-width: 60vh;
+    max-width: 80vh;
 
     .plus-icon {
       top: 10px;
       left: 10px;
+    }
+
+    h3 {
+      font-weight: 200;
+      text-align: center;
+      position: absolute;
+      top: 2vw;
+      left: 5vw;
     }
 
     .close {
@@ -123,19 +141,13 @@ export default {
   .modal-content {
     background-color: var(--clr-body);
     margin: auto;
-    padding: 1vh 2vh;
-    max-width: 60vh;
+    padding: 2vh;
+    max-width: 80vh;
     text-align: right;
-
-    h3 {
-      font-weight: 200;
-      text-align: center;
-      width: 80%;
-      margin-top: 10px;
-    }
+    border-radius: 5px;
 
     .form {
-      margin-top: 2vw;
+      margin-top: 3vw;
 
       .row {
         display: flex;
@@ -161,7 +173,7 @@ export default {
         label {
           display: block;
           font-size: 14px;
-          margin-bottom: 1vw;
+          margin-bottom: 1.2vw;
         }
 
         textarea {
@@ -170,7 +182,8 @@ export default {
       }
 
       input,
-      textarea {
+      textarea,
+      select {
         outline: 0;
         border-width: 0 0 1px;
 
@@ -179,8 +192,10 @@ export default {
         }
       }
 
-      input {
+      input,
+      select {
         border-color: #000;
+        padding: 1px 0;
         flex-basis: 30%;
 
         &.large {

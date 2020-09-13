@@ -29,7 +29,6 @@ export default {
 
 <style lang="scss" scoped>
 .search {
-  width: 220px;
   border-bottom: 1px solid black;
   padding: 10px 0;
   margin: 0 10px 0 auto;

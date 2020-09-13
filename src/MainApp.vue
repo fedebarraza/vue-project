@@ -31,7 +31,7 @@ body {
 #main-app {
   font-family: basic-sans, sans-serif;
   color: var(--clr-primary);
-  margin-top: 60px;
+  margin-top: 6vh;
 }
 
 .bg-green {

@@ -23,7 +23,7 @@ export default {
 .icon {
   background-color: green;
   position: absolute;
-  top: 50px;
+  top: 5vh;
   margin-left: 10px;
   border-radius: 5px;
 
