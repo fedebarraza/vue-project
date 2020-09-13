@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import PlusIcon from "./PlusIcon";
+import PlusIcon from "../ui/PlusIcon.vue";
 
 export default {
   name: "contact-modal",

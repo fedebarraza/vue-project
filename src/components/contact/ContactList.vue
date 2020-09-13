@@ -94,6 +94,10 @@ export default {
       .action-button {
         margin: 0 10px;
         cursor: pointer;
+
+        &:hover {
+          color: var(--clr-green);
+        }
       }
     }
   }

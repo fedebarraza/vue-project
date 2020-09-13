@@ -19,6 +19,7 @@ export default {
   --clr-primary: #333;
   --clr-body: #fefefe;
   --clr-bg: #eeeeee;
+  --clr-green: green;
 }
 
 body {
@@ -34,6 +35,6 @@ body {
 }
 
 .bg-green {
-  background-color: green;
+  background-color: var(--clr-green);
 }
 </style>
